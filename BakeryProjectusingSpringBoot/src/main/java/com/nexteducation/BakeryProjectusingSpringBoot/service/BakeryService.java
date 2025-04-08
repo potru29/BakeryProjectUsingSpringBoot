@@ -13,6 +13,6 @@ public interface BakeryService {
 	BakeryEntity getItemById(int id);
 	void updateItem(BakeryEntity item);
 	void deleteIntem(int id);
-	
+	List<BakeryEntity> searchBakeryItems(String keyword);
 
 }

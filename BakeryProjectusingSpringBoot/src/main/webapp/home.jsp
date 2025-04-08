@@ -4,6 +4,9 @@
     if(session.getAttribute("userObj") == null) {
         response.sendRedirect("login");
     }
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
 %>
 <!DOCTYPE html>
 <html>
@@ -60,7 +63,11 @@
 
 <div class="container">
     <h2 class="heading">Our Delicious Bakery Items</h2>
-
+    <form action="search" method="get" class="form-inline mb-3">
+		   <input type="text" name="keyword" class="form-control mr-2" placeholder="Search by name/category/price">
+		   <button type="submit" class="btn btn-primary">Search</button>
+		</form>
+		    
     <div class="row">
         <c:forEach var="item" items="${items}">
             <div class="col-md-4 mb-4">

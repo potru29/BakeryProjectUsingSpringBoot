@@ -4,6 +4,9 @@
     if(session.getAttribute("userObj") == null) {
         response.sendRedirect("login");
     }
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+response.setHeader("Pragma", "no-cache");
+response.setDateHeader("Expires", 0);
 %>
 
 <!DOCTYPE html>
@@ -36,7 +39,7 @@
                     <th>remove items</th>
                 </tr>
             </thead>
-            <tbody>
+            <body>
                 <c:forEach var="item" items="${cart}">
                     <tr>
                         <td>${item.item.name}</td>

@@ -80,6 +80,13 @@ public class BakeryController {
 	       service.deleteIntem(id);
 	       return "redirect:/admin"; 
 	    }
+	    @GetMapping("/search")
+	    public String searchItems(@RequestParam("keyword") String keyword, Model model) {
+	        List<BakeryEntity> result = service.searchBakeryItems(keyword);
+	        model.addAttribute("items", result);
+	        return "home";
+	    }
+
 	    @Autowired
 	    private UserService userService;
 

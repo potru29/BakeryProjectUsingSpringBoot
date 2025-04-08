@@ -37,5 +37,9 @@ public class BakeryServiceImpl implements BakeryService{
 		repository.deleteById(id);
 		
 	}
+	public List<BakeryEntity> searchBakeryItems(String keyword) {
+	    return repository.searchByNameCategoryOrPrice(keyword);
+	}
+
 
 }
